@@ -1,69 +1,95 @@
-# WhatsApp AI Bot with FastAPI, Gemini, and CrewAI
+# 📊 Visualizador CSV con Gemini AI
 
-This project implements a WhatsApp bot that uses Google's Gemini AI and CrewAI to process messages and provide intelligent responses. It includes product recommendations and customer support features.
+Esta aplicación web permite cargar archivos CSV y generar visualizaciones de datos de forma interactiva utilizando la IA de Google Gemini. La aplicación está construida con Streamlit y permite personalizar gráficos de manera intuitiva a través de prompts en lenguaje natural.
 
-## Features
+## 🚀 Características
 
-- WhatsApp message webhook endpoint
-- Text and audio message processing (audio TBD)
-- Product catalog with search capabilities
-- AI-powered responses using Gemini Pro
-- Intelligent agent system using CrewAI
+- Carga de archivos CSV
+- Visualización previa de datos
+- Generación de gráficos usando IA
+- Personalización de visualizaciones
+- Interfaz intuitiva
+- Soporte para múltiples tipos de gráficos
 
-## Setup
+## 📋 Requisitos Previos
 
-1. Install dependencies:
+- Python 3.8 o superior
+- Pip (gestor de paquetes de Python)
+- Una clave API de Google Gemini
+
+## ⚙️ Instalación
+
+1. Clona el repositorio:
+```bash
+git clone https://github.com/tu-usuario/nombre-del-repo.git
+cd nombre-del-repo
+```
+
+2. Crea un entorno virtual:
+```bash
+python -m venv venv
+
+# En Windows
+venv\Scripts\activate
+
+# En macOS/Linux
+source venv/bin/activate
+```
+
+3. Instala las dependencias:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Set up environment variables:
-Create a `.env` file with:
-```
-GOOGLE_API_KEY=your_gemini_api_key
-```
-
-3. Run the application:
+4. Crea un archivo `.env` en la raíz del proyecto:
 ```bash
-python main.py
+GEMINI_API_KEY=tu_clave_api_aquí
 ```
 
-The server will start at `http://localhost:8000`
+## 🎮 Uso
 
-## API Endpoints
-
-- `POST /webhook`: Receives WhatsApp messages
-- `GET /products`: Lists all products
-- `GET /products/{product_id}`: Get specific product details
-- `POST /query-products`: Search products using natural language
-
-## Testing
-
-You can test the API endpoints using curl or any API testing tool like Postman. Example:
-
+1. Activa el entorno virtual si no está activado:
 ```bash
-# Get all products
-curl http://localhost:8000/products
+# En Windows
+venv\Scripts\activate
 
-# Query products
-curl -X POST http://localhost:8000/query-products \
-  -H "Content-Type: application/json" \
-  -d '{"query": "smartphone", "user_id": "123"}'
+# En macOS/Linux
+source venv/bin/activate
 ```
 
-## WhatsApp Integration
+2. Ejecuta la aplicación:
+```bash
+streamlit run app.py
+```
 
-Currently, the WhatsApp integration is mocked. To integrate with WhatsApp Business API:
+3. Abre tu navegador en `http://localhost:8501`
 
-1. Set up a WhatsApp Business account
-2. Configure the webhook URL in WhatsApp Business API
-3. Update the webhook handler in the code with actual WhatsApp API calls
+## 📝 Cómo Usar la Aplicación
 
-## Note
+1. **Carga de Datos**: 
+   - Haz clic en "Choose a CSV file" en la barra lateral
+   - Selecciona tu archivo CSV
 
-This is a development version with mock data. For production use:
+2. **Visualización de Datos**:
+   - Revisa la vista previa de los datos
+   - Explora las estadísticas básicas
+   - Verifica los tipos de datos
 
-- Implement proper database storage
-- Add authentication and security measures
-- Set up proper error handling and logging
-- Configure WhatsApp Business API integration 
+3. **Generación de Gráficos**:
+   - Describe el gráfico que deseas en el área de texto
+   - Haz clic en "Generate & Display Plot"
+   - El código generado y el gráfico se mostrarán automáticamente
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue primero para discutir los cambios que te gustaría hacer.
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## ⚠️ Notas Importantes
+
+- Asegúrate de tener una clave API válida de Google Gemini
+- Los archivos CSV deben estar correctamente formateados
+- La aplicación funciona mejor con conjuntos de datos limpios y estructurados
